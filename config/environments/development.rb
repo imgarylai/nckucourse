@@ -35,6 +35,6 @@ Nckucourse::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  ENV['FACEBOOK_APP_ID'] = "138027589671786"
-  ENV['FACEBOOK_SECRET'] = "6896500b459305beeba210636a0d4c01"
+  ENV['APP_ID'] = "138027589671786"
+  ENV['APP_SECRET'] = "6896500b459305beeba210636a0d4c01"
 end
