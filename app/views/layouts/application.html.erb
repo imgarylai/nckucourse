@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>NCKU Course</title>
-<%= stylesheet_link_tag    "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
-<%= csrf_meta_tags %>
-</head>
-<body>
-
-	<div class="navbar">
-	  <div class="navbar-inner">
-	    <div class="container">
-			<ul class="nav">
-				<a class="brand" href="#">Project name</a>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Link</a></li>
-				<li><a href="#">Link</a></li>
-			</ul>
-	    </div>
-	  </div>
-	</div>
-	<div class="container">
-		<%= yield %>
-	</div>
-</body>
+  <head>
+    <title>NCKU Course</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+	<%= render :partial => "/main/header" %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
