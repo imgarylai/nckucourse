@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :user_courseships
+  has_many :courses, :through => :user_courseships
+  
 	def self.from_omniauth(auth)
 		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 			user.provider = auth.provider
