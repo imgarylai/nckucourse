@@ -4,7 +4,6 @@ Nckucourse::Application.routes.draw do
 	match 'auth/failure', to: redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	
-	match 'course', to: 'course#course', as: 'course'
 	match 'index', to: 'main#index', as: 'index'
   
 	root to: 'main#index'
