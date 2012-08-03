@@ -5,6 +5,7 @@ Nckucourse::Application.routes.draw do
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	
 	match 'index', to: 'main#index', as: 'index'
+	match 'course', to: 'course#course', as: 'course'
   
 	root to: 'main#index'
 
