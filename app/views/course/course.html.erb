@@ -1,8 +1,15 @@
-<div class="span4">
-	<form action="course_submit" method="get" accept-charset="utf-8">
-	<label for=""> 輸入課程代碼</label><input type="text/submit/hidden/button" name="" value="" id="">
-	
+<table>
+  <tr>
+    <th>Name</th>
+    <th>SN</th>
+    <th>Time</th>
+  </tr>
 
-	<p><input type="submit" value="Continue &rarr;"></p>
-</form>
-</div>
+<% @courses.each do |courses| %>
+  <tr>
+    <td><%= courses.name %></td>
+    <td><%= courses.sn %></td>
+    <td><%= courses.time %></td>
+  </tr>
+<% end %>
+</table>

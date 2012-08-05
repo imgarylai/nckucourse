@@ -15,4 +15,7 @@
 			Learn more
 		</a>
 	</p>
+	<% if current_user %>
+	  <%= current_user.friends %>
+	<% end %>
 </div>
