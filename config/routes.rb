@@ -6,6 +6,8 @@ Nckucourse::Application.routes.draw do
 	
 	match 'index', to: 'main#index', as: 'index'
 	match 'course', to: 'course#course', as: 'course'
+	
+	resources :add_course
   
 	root to: 'main#index'
 
