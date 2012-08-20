@@ -1,16 +1,18 @@
-<table>
+<div class="span4">
+<table class="table table-striped">
   <tr>
+		<th>SN</th>
     <th>Name</th>
-    <th>SN</th>
     <th>Time</th>
+		<th>Add</th>
   </tr>
-
 <% @courses.each do |courses| %>
   <tr>
+		<td><%= courses.sn %></td>
     <td><%= courses.name %></td>
-    <td><%= courses.sn %></td>
     <td><%= courses.time %></td>
-		<td><button type="button">Click Me!</button></td>
+		<td><button class="btn btn-success small">Add</button></td>
   </tr>
 <% end %>
 </table>
+</div>

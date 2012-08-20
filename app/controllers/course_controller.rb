@@ -1,7 +1,7 @@
 class CourseController < ApplicationController
 
   def course
-    @courses = Course.all
+    @courses = Course.find(:all, :order => 'sn')
 
     respond_to do |format|
       format.html # course.html.erb
