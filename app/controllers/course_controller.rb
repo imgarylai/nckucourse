@@ -10,7 +10,7 @@ class CourseController < ApplicationController
   end
 
   def add_course
-  	
+
   end
 
 end
