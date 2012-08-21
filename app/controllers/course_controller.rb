@@ -9,4 +9,8 @@ class CourseController < ApplicationController
     end
   end
 
+  def add_course
+  	
+  end
+
 end

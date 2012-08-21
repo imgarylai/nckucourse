@@ -11,7 +11,12 @@
 		<td><%= courses.sn %></td>
     <td><%= courses.name %></td>
     <td><%= courses.time %></td>
-		<td><button class="btn btn-success small">Add</button></td>
+		<td>
+      <form action="add_course" method="post">
+       <input type="hidden" name="sn" value=<%= "'#{courses.sn}'" %> >
+       <button type="submit" class="btn btn-success btn-mini">Add</button>
+      </form>
+    </td>
   </tr>
 <% end %>
 </table>
