@@ -1,6 +1,5 @@
 class CourseController < ApplicationController
-
-  def course
+  def index
     @courses = Course.find(:all, :order => 'sn')
 
     respond_to do |format|

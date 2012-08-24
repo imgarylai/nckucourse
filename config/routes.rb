@@ -4,12 +4,11 @@ Nckucourse::Application.routes.draw do
 	match 'auth/failure', to: redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	
-	match 'index', to: 'main#index', as: 'index'
-	match 'course', to: 'course#course', as: 'course'
-	
 	match 'add_course', to: 'course#add_course', as: 'add_course'
   
-	root to: 'main#index'
+	match 'login' => 'main#login'
+
+	root to: 'course#index'
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

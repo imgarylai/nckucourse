@@ -1,0 +1,26 @@
+<%= render :partial => "/course/header" %>
+<div class="container">
+  <div class="span4">
+  <table class="table table-striped">
+    <tr>
+  		<th>SN</th>
+      <th>Name</th>
+      <th>Time</th>
+  		<th>Add</th>
+    </tr>
+  <% @courses.each do |courses| %>
+    <tr>
+  		<td><%= courses.sn %></td>
+      <td><%= courses.name %></td>
+      <td><%= courses.time %></td>
+  		<td>
+        <form action="add_course" method="post">
+         <input type="hidden" name="sn" value=<%= "'#{courses.sn}'" %> >
+         <button type="submit" class="btn btn-success btn-mini">Add</button>
+        </form>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+  </div>
+</div>
