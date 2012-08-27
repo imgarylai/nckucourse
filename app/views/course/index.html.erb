@@ -10,8 +10,8 @@
     </tr>
   <% @courses.each do |courses| %>
     <tr>
-  		<td><%= courses.sn %></td>
-      <td><%= courses.name %></td>
+  		<td><%= link_to "#{courses.sn}", "show/#{courses.id}" %></td>
+      <td><%= link_to "#{courses.name}", "show/#{courses.id}" %></td>
       <td><%= courses.time %></td>
   		<td>
         <form action="add_course" method="post">
@@ -21,6 +21,14 @@
       </td>
     </tr>
   <% end %>
+
+  <% @users.each do |f| %>
+    <%= f.id %>
+  <% end %>
+
   </table>
+  </div>
+  <div class="span8">
+      
   </div>
 </div>

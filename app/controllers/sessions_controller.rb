@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	skip_before_filter :facebook_login, only: [:create, :destroy]
+  
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
