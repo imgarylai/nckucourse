@@ -5,7 +5,7 @@
       <strong>Warning!</strong><%= content_tag :p, msg, id: "flash_#{name}" %>
     </div>
   <% end %>
-  <div class="span4">
+  <div class="span6">
   <table class="table table-striped">
     <tr>
   		<th>SN</th>
@@ -15,8 +15,8 @@
     </tr>
   <% @courses.each do |c| %>
     <tr>
-  		<td><%= link_to "#{c.sn}", "show/#{c.id}" %></td>
-      <td><%= link_to "#{c.name}", "show/#{c.id}" %></td>
+  		<td><%= c.sn %></td>
+      <td><%= c.name %></td>
       <td><%= c.time %></td>
   		<td>
         <% if !current_user.courses.member?(c) %>
@@ -38,11 +38,20 @@
   <% end %>
   </table>
   </div>
-  <div class="span8">
-    <% current_user.courses.each do |uc| %>
-      <%= uc.name %>
-      <%= uc.time %>
-      <br>
-    <% end -%>
+  <div class="span6">
+    <table class="table table-striped">
+      <% current_user.courses.each do |uc| %>
+      <tr>
+        <td><%= uc.name %> </td>
+        <td><%= uc.time %> </td>
+        <td><%= link_to "誰有修這門課","show/#{uc.id}" %></td>
+      </tr>
+      <% end -%>
+    </table>
+  <div class="well">
+    <p>1.選擇這學期的通識科目</p>
+    <p>2.點"誰有修這門課"<p>
+    <p>3.就可以看到這學期誰也有修這門科目<p>
+  </div>
   </div>
 </div>
