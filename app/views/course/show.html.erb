@@ -1,7 +1,12 @@
 <%= render :partial => "/course/header" %>
 <div class="container">
-<h2><%= @course.name %></h2>
-<% @course.users.each do |u| %>
-<%= u.name %>
-<% end %>
+	<div class="span6">
+		<h2><%= @course.name %></h2>
+			<% @course.users.each do |u| %>
+				<div class="well well-small">
+				<img src="http://graph.facebook.com/<%="#{u.uid}"%>/picture">
+				<%= link_to "#{u.name}", "http://www.facebook.com/#{u.uid}",:target => "_blank" %>
+				</div>
+			<% end %>
+	</div>
 </div>

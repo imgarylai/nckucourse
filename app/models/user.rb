@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook
-      @facebook ||= Koala::Facebook::API.new(oauth_token)
+  def graph
+      @graph ||= Koala::Facebook::API.new(oauth_token)
   end
   
   def friends
-    facebook.get_connection("me","friends")
+    graph.get_connection("me","friends")
   end
 
 end
