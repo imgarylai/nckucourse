@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery :except => :add_course
+  protect_from_forgery :except => [:add_course, :remove_course]
   before_filter :facebook_login
 
   protected

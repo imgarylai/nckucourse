@@ -1,26 +1,37 @@
 class CourseController < ApplicationController
   def index
-    @courses = Course.find(:all, :order => 'sn')
-    @users = User.all
+    @courses = Course.all
+    # @usercourseships = UserCourseship.find_by_user_id(current_user.id)
 
-    respond_to do |format|
-      format.html # course.html.erb
-      format.json { render json: @course }
-    end
   end
 
   def add_course
-    @sn = params[:sn]
+    @user = User.find(session[:user_id])
+    @course = Course.find(params[:id])
+    @user.courses.each do |c|
+      if c.time == @course.time
+        flash[:notice] = "Time Confilct!!! "
+        redirect_to :root
+        return
+      end
+    end
+    @usercourseship = UserCourseship.create( :user_id => @user.id, :course_id => @course.id)
+    redirect_to :root
+  end
 
+  def remove_course
+    @user = User.find(session[:user_id])
+    @course = Course.find(params[:id])
+    #@usercourseship = UserCourseship.where('user_id = ? and course_id = ?',
+    #                                       @user, @course)[0].destroy
+    @usercourseship = @user.user_courseships.find_by_course_id(@course.id).try :destroy
+    #@usercourseship = UserCourseship.where( :user_id => @user.id, :course_id => @course.id).destroy
+    redirect_to :root
   end
 
   def show
-    @courses = Course.find(params[:id])
+    @course = Course.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @scheduled_post }
-    end
   end
 
 end
