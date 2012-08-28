@@ -1,16 +1,21 @@
 Nckucourse::Application.routes.draw do
 
+	# facebook signin
+
 	match 'auth/:provider/callback', to: 'sessions#create'
 	match 'auth/failure', to: redirect('/')
 	match 'signout', to: 'sessions#destroy', as: 'signout'
 	
+	# course 
 	match 'add_course', to: 'course#add_course', as: 'add_course'
 	match 'remove_course', to: 'course#remove_course', as: 'remove_course'
 	match 'show/:id', to: 'course#show'
-  
-	match 'login' => 'main#login'
+  root to: 'course#index'
 
-	root to: 'course#index'
+  # about
+  match 'about', to: 'about#about', as: 'about'
+
+	match 'login' => 'main#login'
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

@@ -16,7 +16,7 @@
   <% @courses.each do |c| %>
     <tr>
   		<td><%= c.sn %></td>
-      <td><%= c.name %><%= c.users.size %></td>
+      <td><%= c.name %> <%= c.users.size %></td>
       <td><%= c.time %></td>
   		<td>
         <% if !current_user.courses.member?(c) %>

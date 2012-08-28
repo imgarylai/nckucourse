@@ -39,3 +39,4 @@ gem 'jquery-rails'
 
 gem 'omniauth-facebook'
 gem 'koala', :git => 'https://github.com/arsduo/koala.git'
+gem 'thin'

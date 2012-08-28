@@ -3,7 +3,8 @@
 		<div class="container">
 			<ul class="nav">
 				<a class="brand" href="<%= root_url %>">NCKU Course</a>
-				<li class="<%= 'active' if params[:controller] == 'course' %>"> <a href="#">Course</a> </li>
+				<li class="<%= 'active' if params[:controller] == 'course' %>"><%= link_to "Course", :root %> </li>
+				<li class="<%= 'active' if params[:controller] == 'about' %>"><%= link_to "About", :about %> </li>
 			</ul>
 				<ul class="nav pull-right">
 				<li><a class="brand"></a></li>
