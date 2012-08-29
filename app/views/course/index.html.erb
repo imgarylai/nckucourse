@@ -6,6 +6,7 @@
     </div>
   <% end %>
   <div class="span6">
+  <h3>Courses</h3>
   <table class="table table-striped">
     <tr>
   		<th>SN</th>
@@ -41,12 +42,23 @@
   <div class="span6">
     <h3>My Course</h3>
     <table class="table table-striped">
-      <% current_user.courses.each do |uc| %>
       <tr>
-        <td><%= uc.name %> </td>
-        <td><%= uc.time %> </td>
-        <td><%= link_to "誰有修這門課","list/#{uc.id}" %></td>
+        <th>Name</th>
+        <th>Classmate</th>
+        <th>Add/Remove</th>
       </tr>
+      <% @courses.each do |c| %>
+        <% if current_user.courses.member?(c) %>
+          <td><%= link_to "#{c.name} #{c.users.size}" ,"course/#{c.id}" %></td>
+          <td><%= link_to "Look", "list/#{c.id}",:class => "btn-info btn btn-mini" %></td>
+          <td>
+            <!-- member:判斷user選的課是否有c -->
+            <form action="remove_course" method="post">
+             <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
+             <button type="submit" class="btn btn-danger btn-mini">remove</button>
+            </form>
+          </td>
+        <% end -%>
       <% end -%>
     </table>
   <div class="well">
