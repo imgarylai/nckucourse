@@ -1,6 +1,19 @@
+<%= image_tag("background.png", :id => "background") %>
 <div class="container">
-	<div class="hero-unit center">
-		<h3>Welcome to NCKU Course</h3>
-		<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" ,:class => "btn btn-primary btn-large "%>
+	<div id="maincontent">
+		<div class="span6 offset6">
+		<div class="hero-unit center">
+			<h3>Welcome to NCKU Course</h3>
+			<%= link_to "Sign in with Facebook",
+									"/auth/facebook", 
+									id: "sign_in", 
+									:class => "btn btn-primary btn-large "%>
+		</div>
+	</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(window).load(function() {
+	$("#background").fullBg();
+});
+</script>

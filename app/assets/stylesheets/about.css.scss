@@ -1,3 +1,16 @@
 // Place all the styles related to the about controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fullBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+ 
+#maincontent {
+  position: absolute;
+  top: 0;
+  z-index: 50;
+}
