@@ -5,9 +5,21 @@
 				<a class="brand" href="<%= root_url %>">NCKU Course</a>
 				<li class="<%= 'active' if params[:controller] == 'course' %>"><%= link_to "Course", :root %> </li>
 				<li class="<%= 'active' if params[:controller] == 'about' %>"><%= link_to "About", :about %> </li>
+				<li><%= link_to "Facebook", "https://www.facebook.com/nckucourse", :target => "_blank" %></li>
 			</ul>
 				<ul class="nav pull-right">
-				<li><a class="brand"></a></li>
+				<li>
+					<a href="">
+						<img width=20px height=20px
+					src="http://graph.facebook.com/<%="#{current_user.uid}"%>/picture">
+					</a>
+				</li>
+				<li>
+					<%= link_to "#{current_user.name}", 
+					"http://www.facebook.com/#{current_user.uid}",
+					:target => "_blank",
+					:class => "brand" %>
+				</li>
 				<li><%= link_to "Sign out", signout_path, id: "sign_out" %>  </li> 
 			</ul>
 		</div>

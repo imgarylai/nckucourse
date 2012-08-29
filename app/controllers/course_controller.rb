@@ -9,7 +9,7 @@ class CourseController < ApplicationController
     @course = Course.find(params[:id])
     @user.courses.each do |c|
       if c.time == @course.time
-        flash[:notice] = "Time Confilct!!! "
+        flash[:notice] = "Time conflict"
         redirect_to :root
         return
       end
@@ -28,7 +28,11 @@ class CourseController < ApplicationController
     redirect_to :root
   end
 
-  def show
+  def list
+    @course = Course.find(params[:id])
+  end
+
+  def course
     @course = Course.find(params[:id])
   end
 

@@ -9,7 +9,8 @@ Nckucourse::Application.routes.draw do
 	# course 
 	match 'add_course', to: 'course#add_course', as: 'add_course'
 	match 'remove_course', to: 'course#remove_course', as: 'remove_course'
-	match 'show/:id', to: 'course#show'
+	match 'list/:id', to: 'course#list'
+	match 'course/:id', to: 'course#course'
   root to: 'course#index'
 
   # about

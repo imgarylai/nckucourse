@@ -15,8 +15,8 @@
     </tr>
   <% @courses.each do |c| %>
     <tr>
-  		<td><%= c.sn %></td>
-      <td><%= c.name %> <%= c.users.size %></td>
+  		<td><%= link_to "#{c.sn}", "course/#{c.id}" %></td>
+      <td><%= link_to "#{c.name} #{c.users.size}" ,"course/#{c.id}" %></td>
       <td><%= c.time %></td>
   		<td>
         <% if !current_user.courses.member?(c) %>
@@ -45,7 +45,7 @@
       <tr>
         <td><%= uc.name %> </td>
         <td><%= uc.time %> </td>
-        <td><%= link_to "誰有修這門課","show/#{uc.id}" %></td>
+        <td><%= link_to "誰有修這門課","list/#{uc.id}" %></td>
       </tr>
       <% end -%>
     </table>
