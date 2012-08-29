@@ -48,6 +48,7 @@
         <th>Add/Remove</th>
       </tr>
       <% @courses.each do |c| %>
+      <tr>
         <% if current_user.courses.member?(c) %>
           <td><%= link_to "#{c.name} #{c.users.size}" ,"course/#{c.id}" %></td>
           <td><%= link_to "Look", "list/#{c.id}",:class => "btn-info btn btn-mini" %></td>
@@ -57,9 +58,12 @@
              <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
              <button type="submit" class="btn btn-danger btn-mini">remove</button>
             </form>
-          </td>
+          
         <% end -%>
+        </td>
+        </tr>
       <% end -%>
+      
     </table>
   <div class="well">
     <p>1.選擇這學期的通識科目</p>
