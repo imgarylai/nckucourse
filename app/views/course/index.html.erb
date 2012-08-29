@@ -12,12 +12,14 @@
   		<th>SN</th>
       <th>Name</th>
       <th>Time</th>
+      <th>Amount</th>
   		<th>Add/Remove</th>
     </tr>
   <% @courses.each do |c| %>
     <tr>
   		<td><%= link_to "#{c.sn}", "course/#{c.id}" %></td>
-      <td><%= link_to "#{c.name} #{c.users.size}" ,"course/#{c.id}" %></td>
+      <td><%= link_to "#{c.name} " ,"course/#{c.id}" %></td>
+      <td><%= "#{c.users.size}" %></td>
       <td><%= c.time %></td>
   		<td>
         <% if !current_user.courses.member?(c) %>
@@ -44,13 +46,15 @@
     <table class="table table-striped">
       <tr>
         <th>Name</th>
+        <th>Amount</th>
         <th>Classmate</th>
         <th>Add/Remove</th>
       </tr>
       <% @courses.each do |c| %>
       <tr>
         <% if current_user.courses.member?(c) %>
-          <td><%= link_to "#{c.name} #{c.users.size}" ,"course/#{c.id}" %></td>
+          <td><%= link_to "#{c.name}" ,"course/#{c.id}" %></td>
+          <td><%= "#{c.users.size}" %> </td>
           <td><%= link_to "Look", "list/#{c.id}",:class => "btn-info btn btn-mini" %></td>
           <td>
             <!-- member:判斷user選的課是否有c -->
