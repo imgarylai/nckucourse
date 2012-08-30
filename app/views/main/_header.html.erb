@@ -4,7 +4,7 @@
 			<ul class="nav">
 				<a class="brand" href="<%= root_url %>">NCKU Course</a>
 				<li class="<%= 'active' if params[:controller] == 'course' %>"><%= link_to "課程", :root %> </li>
-				
+				<li class="<%= 'active' if params[:controller] == 'exps' %>"><%= link_to "心得", :exps %> </li>
 				<li class="<%= 'active' if params[:controller] == 'about' %>"><%= link_to "介紹", :about %> </li>
 				<li><%= link_to "Facebook", "https://www.facebook.com/nckucourse", :target => "_blank" %></li>
 			</ul>
