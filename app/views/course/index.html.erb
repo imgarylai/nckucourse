@@ -5,54 +5,47 @@
       <strong>Warning!</strong><%= content_tag :p, msg, id: "flash_#{name}" %>
     </div>
   <% end %>
-  <div class="span6 row">
-  <div class="span2">
-    <h3>Courses</h3>
-  </div>
-  <div class="pull-right">
-    <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
+    <div class="span6">
+      <div class="span2"><h3>Courses</h3></div>
+      <div class="pull-right">
+      <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
         <h3><%= text_field_tag :search, params[:search] ,:class => "input-medium search-query" %>
         <%= submit_tag "Search", :name => nil , :class => "btn" %></h3>
-    <% end %>
-  </div>
-  <div id="courses">
-    <%= render '/course/courses' %>
-  </div>
-  </div>
-  <div class="span6">
-    <div class="span3">
-      <h3>My Course</h3>
+      <% end %>
+      </div>
+      <div id="courses">
+        <%= render :partial =>'/course/courses' %>
+      </div>
     </div>
-    <table class="table table-striped">
-      <tr>
-        <th>Name</th>
-        <th>Amount</th>
-        <th>Classmate</th>
-        <th>Add/Remove</th>
-      </tr>
-      <% @courses.each do |c| %>
-      <tr>
-        <% if current_user.courses.member?(c) %>
-          <td><%= link_to "#{c.name}" ,"course/#{c.id}" %></td>
-          <td><%= "#{c.users.size}" %> </td>
-          <td><%= link_to "Look", "list/#{c.id}",:class => "btn-info btn btn-mini" %></td>
-          <td>
-            <!-- member:判斷user選的課是否有c -->
-            <form action="remove_course" method="post">
-             <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
-             <button type="submit" class="btn btn-danger btn-mini">remove</button>
-            </form>
-          
-        <% end -%>
-        </td>
-        </tr>
-      <% end -%>
-      
-    </table>
-  <div class="well">
-    <p>1.選擇這學期的通識科目</p>
-    <p>2.點"誰有修這門課"<p>
-    <p>3.就可以看到這學期誰也有修這門科目<p>
+    <div class="span6">
+      <div class="span3"><h3>My Course</h3></div>
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Classmate</th>
+            <th>Add/Remove</th>
+          </tr>
+          <% @courses.each do |c| %>
+          <tr>
+            <% if current_user.courses.member?(c) %>
+              <td><%= link_to "#{c.name}" ,"course/#{c.id}" %></td>
+              <td><%= "#{c.users.size}" %> </td>
+              <td><%= link_to "Look", "list/#{c.id}",:class => "btn-info btn btn-mini" %></td>
+              <td>
+              <!-- member:判斷user選的課是否有c -->
+              <form action="remove_course" method="post">
+               <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
+               <button type="submit" class="btn btn-danger btn-mini">remove</button>
+              </form>
+            <% end -%>
+              </td>
+          </tr>
+          <% end -%>
+        </table>
+      <div class="well">
+        <p>1.選擇這學期的通識科目</p>
+        <p>2.點"誰有修這門課"<p>
+        <p>3.就可以看到這學期誰也有修這門科目<p>
+      </div>
   </div>
-  </div>
-</div>

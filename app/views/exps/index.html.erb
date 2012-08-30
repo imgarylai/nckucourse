@@ -22,7 +22,7 @@
 <% @exps.each do |exp| %>
   <tr>
     <td><img width=20px height=20px
-          src="http://graph.facebook.com/<%="#{exp.user.uid}"%>/picture"><%= exp.user.name.first(10) %></td>
+        src="http://graph.facebook.com/<%="#{exp.user.uid}"%>/picture"><%= exp.user.name.first(10) %></td>
     <td><%= exp.course.name %></td>
     <td><%= exp.content.first(30) %>...</td>
     <td><%= exp.rate %></td>
