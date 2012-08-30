@@ -1,0 +1,48 @@
+<%= render :partial => "/main/header" %>
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @exp.user_id %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @exp.course_id %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @exp.year %>
+</p>
+
+<p>
+  <b>Material:</b>
+  <%= @exp.material %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @exp.style %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @exp.content %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @exp.score %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= @exp.rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_exp_path(@exp) %> |
+<%= link_to 'Back', exps_path %>
+</div>

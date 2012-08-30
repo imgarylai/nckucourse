@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  course_id: 1
+  year: MyString
+  material: MyText
+  style: MyText
+  content: MyText
+  score: MyString
+  rate: 1
+
+two:
+  user_id: 1
+  course_id: 1
+  year: MyString
+  material: MyText
+  style: MyText
+  content: MyText
+  score: MyString
+  rate: 1

@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <tr>
+		<th>SN</th>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Time</th>
+		<th>Add/Remove</th>
+  </tr>
+<% @courses.each do |c| %>
+  <tr>
+		<td><%= link_to "#{c.sn}", "course/#{c.id}" %></td>
+    <td><%= link_to "#{c.name} " ,"course/#{c.id}" %></td>
+    <td><%= "#{c.users.size}" %></td>
+    <td><%= c.time %></td>
+		<td>
+      <% if !current_user.courses.member?(c) %>
+      <!-- member:判斷user選的課是否有c -->
+      <form action="add_course" method="post">
+       <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
+       <button type="submit" class="btn btn-success btn-mini">Add</button>
+      </form>
+      <% end -%>
+      <% if current_user.courses.member?(c) %>
+      <!-- member:判斷user選的課是否有c -->
+      <form action="remove_course" method="post">
+       <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
+       <button type="submit" class="btn btn-danger btn-mini">remove</button>
+      </form>
+      <% end -%>
+    </td>
+  </tr>
+<% end %>
+</table>

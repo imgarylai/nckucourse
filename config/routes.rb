@@ -1,5 +1,7 @@
 Nckucourse::Application.routes.draw do
 
+  resources :exps
+
 	# facebook signin
 
 	match 'auth/:provider/callback', to: 'sessions#create'

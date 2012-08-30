@@ -1,6 +1,7 @@
 class CourseController < ApplicationController
+
   def index
-    @courses = Course.all
+    @courses = Course.search(params[:search])
     # @usercourseships = UserCourseship.find_by_user_id(current_user.id)
   end
 
