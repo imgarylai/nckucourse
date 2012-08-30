@@ -44,7 +44,7 @@ class ExpsController < ApplicationController
 
     respond_to do |format|
       if @exp.save
-        format.html { redirect_to @exp, notice: 'Exp was successfully created.' }
+        format.html { redirect_to @exp, notice: 'Article was successfully posted.' }
         format.json { render json: @exp, status: :created, location: @exp }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class ExpsController < ApplicationController
 
     respond_to do |format|
       if @exp.update_attributes(params[:exp])
-        format.html { redirect_to @exp, notice: 'Exp was successfully updated.' }
+        format.html { redirect_to @exp, notice: 'Successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

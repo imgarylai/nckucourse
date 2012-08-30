@@ -1,28 +1,61 @@
 <%= render :partial => "/main/header" %>
 <div class="container">
-<p id="notice"><%= notice %></p>
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-success">
+      <strong>Thanks</strong><%= content_tag :p, msg, id: "flash_#{name}" %>
+    </div>
+  <% end %>
 
-<h3><%= @exp.course.name %></h3>
-
-<div class="span6">
+<div class="span12">
+  <h3><%= @exp.course.name %></h3>
 <dl class="dl-horizontal span6">
   <dt>作者</dt>
-  <dd><%= @exp.user.name %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= @exp.user.name %>
+    </div>
+  </dd>
   <dt>修課年度</dt>
-  <dd><%= @exp.year %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= @exp.year %>
+    </div>
+  </dd>
   <dt>教材內容</dt>
-  <dd><%= @exp.material %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= @exp.material %>
+    </div>
+  </dd>
   <dt>教學方式</dt> 
-  <dd><%= @exp.style %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= simple_format @exp.style %>
+    </div>
+  </dd>
   <dt>心得</dt>
-  <dd><%= @exp.content %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= simple_format @exp.content %>
+    </div>
+  </dd>
   <dt>評分方式</dt>
-  <dd><%= @exp.score %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= simple_format @exp.score %>
+    </div>
+  </dd>
   <dt>推薦程度</dt>
-  <dd><%= @exp.rate %></dd>
+  <dd>
+    <div class="well well-small">
+      <%= @exp.rate %>
+    </div>
+  </dd>
 </dl>
+
+
+</div>
 <% if @exp.user.id == current_user.id %>
   <%= link_to 'Edit', edit_exp_path(@exp) %>
 <% end -%>
-</div>
 </div>

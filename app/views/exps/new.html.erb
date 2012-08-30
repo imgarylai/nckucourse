@@ -1,7 +1,14 @@
 <%= render :partial => "/main/header" %>
 <div class="container">
 <h3>修課心得</h3>
-
+<div class="alert alert-info">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	''''點擊右邊叉叉可以關掉''''<br>
+  1.禁止注音文、禁止謾罵<br>
+  2.如有爭議文章我們將有權限刪除此文<br>
+  3.修改文章至該篇文章內即可找到修改功能<br>
+  4.歡迎讓成大更美好<br>
+</div>
 <%= render 'form' %>
 
 <%= link_to 'Back', exps_path %>
