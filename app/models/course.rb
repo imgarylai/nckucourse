@@ -6,8 +6,7 @@ class Course < ActiveRecord::Base
   
   def self.search(search)
 	  if search
-	    where('name LIKE ?', "%#{search}%")
-	    where('sn LIKE ?', "%#{search}%")
+	    where('name || sn LIKE ?', "%#{search}%")
 	  else
 	    scoped
 	  end
