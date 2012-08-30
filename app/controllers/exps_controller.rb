@@ -2,7 +2,7 @@ class ExpsController < ApplicationController
   # GET /exps
   # GET /exps.json
   def index
-    @exps = Exp.all
+    @exps = Exp.find(:all, :order => "updated_at desc")
 
     respond_to do |format|
       format.html # index.html.erb
