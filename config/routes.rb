@@ -2,6 +2,8 @@ Nckucourse::Application.routes.draw do
 
   resources :exps
 
+  match 'exps_admin', to: 'exps#exps_admin'
+
 	# facebook signin
 
 	match 'auth/:provider/callback', to: 'sessions#create'

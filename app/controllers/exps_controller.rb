@@ -80,4 +80,8 @@ class ExpsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def exps_admin
+    @exps = Exp.all
+  end
 end

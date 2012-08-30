@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <tr>
+    <th>User</th>
+    <th>Course</th>
+    <th>Content</th>
+    <th>Score</th>
+    <th>Rate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exps.each do |exp| %>
+  <tr>
+    <td><%= exp.user_id %></td>
+    <td><%= exp.course_id %></td>
+    <td><%= exp.content.first(30) %>...</td>
+    <td><%= exp.score %></td>
+    <td><%= exp.rate %></td>
+    <td><%= link_to 'More', exp %></td>
+    <td><%= link_to 'Edit', edit_exp_path(exp) %></td>
+    <td><%= link_to 'Destroy', exp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

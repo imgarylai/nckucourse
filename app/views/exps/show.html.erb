@@ -2,47 +2,27 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @exp.user_id %>
-</p>
+<h3><%= @exp.course.name %></h3>
 
-<p>
-  <b>Course:</b>
-  <%= @exp.course_id %>
-</p>
-
-<p>
-  <b>Year:</b>
-  <%= @exp.year %>
-</p>
-
-<p>
-  <b>Material:</b>
-  <%= @exp.material %>
-</p>
-
-<p>
-  <b>Style:</b>
-  <%= @exp.style %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @exp.content %>
-</p>
-
-<p>
-  <b>Score:</b>
-  <%= @exp.score %>
-</p>
-
-<p>
-  <b>Rate:</b>
-  <%= @exp.rate %>
-</p>
-
-
-<%= link_to 'Edit', edit_exp_path(@exp) %> |
-<%= link_to 'Back', exps_path %>
+<div class="span6">
+<dl class="dl-horizontal span6">
+  <dt>作者</dt>
+  <dd><%= @exp.user.name %></dd>
+  <dt>修課年度</dt>
+  <dd><%= @exp.year %></dd>
+  <dt>教材內容</dt>
+  <dd><%= @exp.material %></dd>
+  <dt>教學方式</dt> 
+  <dd><%= @exp.style %></dd>
+  <dt>心得</dt>
+  <dd><%= @exp.content %></dd>
+  <dt>評分方式</dt>
+  <dd><%= @exp.score %></dd>
+  <dt>推薦程度</dt>
+  <dd><%= @exp.rate %></dd>
+</dl>
+<% if @exp.user.id == current_user.id %>
+  <%= link_to 'Edit', edit_exp_path(@exp) %>
+<% end -%>
+</div>
 </div>
