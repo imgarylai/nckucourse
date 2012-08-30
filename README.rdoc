@@ -1,4 +1,4 @@
-== Welcome to Rails
+== Welcome to NCKU Course
 
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
@@ -24,6 +24,52 @@ unlike the relationship between the Active Record and Action Pack that is much
 more separate. Each of these packages can be used independently outside of
 Rails. You can read more about Action Pack in
 link:files/vendor/rails/actionpack/README.html.
+
+# Installing Ruby 1.9.2 on your Mac
+
+## [Homebrew](http://mxcl.github.com/homebrew/)
+
+I'm assuming you're using bash, though personally I'm using fish.
+If you are already using Homebrew (brew), I would recommend using
+Homebrew's Ruby directly, because it's simpler. But if you feel
+more comfortable with RVM (rvm), it's ok to use RVM, too. And if
+you're not using Homebrew, than it might be easier that just use RVM.
+Here's the commands to setup everything with Homebrew's Ruby:
+
+    brew update         # make sure brew is updated
+    brew install ruby   # install ruby 1.9.2
+    # setup PATH for where gem binaries (executable) are installed.
+    echo 'export PATH=$(brew --prefix ruby)/bin:$PATH' >> ~/.bash_profile
+
+    gem update --system # update rubygems
+    update_rubygems     # sometimes you'll need this to get fully updated.
+    gem install bundler # install latest bundler (you shouldn't use sudo)
+
+Actually, personally I have this line in my ~/.gemrc:
+
+    gem: --user --no-ri --no-rdoc
+
+So that my gem binaries are installed to `~/.gem/ruby/1.9.1/bin`
+instead of `$(brew --prefix ruby)/bin`. Please setup `PATH` accordingly,
+and either way, you won't need sudo before installing any gems.
+
+To use the original Ruby which is built-in Mac, use `/usr/bin/ruby`
+instead of `ruby`. If you need to run gem binaries, for example,
+`bundle`, then you'll need to run it with `/usr/bin/ruby -S bundle`.
+To run `rake test`, I think either one should work:
+
+    /usr/bin/rake test
+
+or
+
+    /usr/bin/ruby -S rake test
+
+But, since Rails 2's `script/console` was very badly written which
+hard coded `irb` somewhere in its code, so you can't really run it
+with different ruby without some hack. (!!)
+
+
+
 
 
 == Getting Started
