@@ -3,12 +3,46 @@
 		<div class="page-header">
   		<h3>源起</h3>
   	</div>
-		<div class="well">
+		<div class="well small">
 			<p>"The key is to pick up things that you think are really important, and then focus on them." -- Jeff Bezos , CEO of Amazon.</p>
 			<p>"關鍵就是找到你認為真正重要的事情, 然後對它聚焦."-- 傑夫 貝佐斯, 亞馬遜執行長</p>
 
 			<p>出家人不打手槍，創業家不出誑語，雖然我還不算是個完全的創業家，但我喜歡我開頭說的第一句話，身為成大人，我認為能讓成大更好，是我從這邊畢業前該還給他的，於是我手寫我口，一行一行從無到有，成大的選課系統可能不容易改變，但希望能讓成大的學生選課更方便</p>
 			<p><%= link_to "Gary Lai", "http://www.facebook.com/GaryLai.CH", :target => "_blank" %></p>	
+		</div>
+		<div class="page-header">
+  		<h3>介紹</h3><em><%= link_to "Read on tumblr", "http://garylai1990.tumblr.com/post/30525570215/nckucourse" %></em>
+  	</div>
+		<div class="well small">
+			<blockquote>
+			<p><a href="http://nckucourse.com/" title="NCKU Course" target="_blank">NCKU Course</a>&nbsp;</p>
+			</blockquote>
+			<p>這算是從無到有，自己第一個寫的Web app，今天是上線的第三天，不知道未來這個服務會走向什麼像的結果，它都是值得紀念的。</p>
+			<p>先從背景講起，其實他是我的畢業專題，很高興系上的<a href="http://www.im.ncku.edu.tw/member/profile.php?pid=17" target="_blank">教授</a>願意就這樣讓我們去實驗，做出這樣的網站來，撇開專題不說，這件事情從頭到尾，我都沒有以它只是個專題的心態在做，而其實我也是個半路出身開始寫網頁的，學校沒人教，台灣的書又少，一點一滴從Google、少數的朋友、前輩不斷的詢問出來，本來希望七月底能上線的，硬生生拖到了八月底，才讓他上線，而現在的狀況，我很開心。</p>
+			<p>如果能從上線的第一天開始用起，我想我的使用者們，會漸漸的喜歡我的網站的，第一天最基本的功能剛上線，我記得每個人都不知道怎麼用，實在糗大了，於是我花了一個多小時不斷微調，第一個功能它堪用了，當天晚上睡覺前，扣掉我拿來測試的<a href="https://developers.facebook.com/docs/test_users/" target="_blank">測試帳號</a>，達到257個用戶，第二天，總共改了30個小版本，晚上睡覺前，也達到了600多位的用戶了，今天2.0的版本發出，希望明天起床後，叫醒我的，不是鬧鐘，而是我的夢想(最近很喜歡這句話)，我的夢想就是，凝聚所有的成大人。</p>
+			<p>還是再感謝一開始就支持這個App的用戶，那我來講講這套系統的理念好了，關於選課、輔助選課的功能實在太多了，如果能幫大家寫個script去搶課，那我想這一定會在"我發佈"的那天很紅，除去我目前也沒有這樣的Background(其實我相信這不難)，這其實還是不是我想要做的，我想做的，<a href="http://youtu.be/7gCtkT1A1tA?t=30s" target="_blank">這關於我、關於你，也關於他</a>，其實關於人，我關注於人，我們想要知道我的好朋友修什麼課，我的課有那些人修，我知道這或許會有隱私權的問題，我後面在提到，我想要知道這堂課以前修過的人的想法......等等，後面還有更多的功能我會一直以這個理念來做，凝聚人，而人們能成更多事，而如果能凝聚成大人，更能成大事。</p>
+			<p>後面記錄一些關於技術背景的事情：</p>
+			<p>首先我想先提到隱私權的問題，其實我會選擇用Facebook登入，他會是對我這個系統最好的選擇，因為如果我建立一個會員系統，光維護這個系統會讓我無法專心的去做很多事情，安全防護.....等，登入的時候我想你可以看到，我只有要求使用者基本的權限，所以如果對於隱私或是安全性有考量的人，相信我，請放心的使用，使用這個系統並不會把你的個資洩漏給詐騙集團，但亂點這個網站以外的其他連結，是有可能會的。</p>
+			<p>接著整個系統的架構，我是以<a href="http://rubyonrails.org/" target="_blank">Ruby on Rails</a>為架構(<a href="http://www.ruby-lang.org/en/" target="_blank">Ruby</a> 1.9.* , Rails 3.2.*)，我覺得非常好上手，整體架構也算乾淨，在學習的路上不怕迷失，網路上相關的資源也很豐富。</p>
+			<p>資料庫只用了一套，是<a href="http://www.postgresql.org/" target="_blank">Postgres</a>，唯一要提醒的是安裝時請小心，不然裝錯了很麻煩！</p>
+			<p>網頁的樣式，由於是一個人開法，所以我採用的是<a href="http://twitter.com/" target="_blank">@Twitter</a>所提供的<a href="http://twitter.github.com/bootstrap/#" target="_blank">Twitter Bootstrap</a>，這絕對會節省非常多你開發的時間，<a href="http://agilemanifesto.org/iso/zhcht/" target="_blank">敏捷開發</a>必備，網路上也有許多類似的套件，如<a href="http://www.getskeleton.com/" target="_blank">Skelton</a>也是不錯的框架。</p>
+			<p>而使用Ruby on Rails我有用了幾套Gem</p>
+			<ul>
+			<li>pd ： 前面提到了，這是資料庫</li>
+			<li><a href="https://github.com/mkdynamic/omniauth-facebook" target="_blank">omniauth-facebook</a>：負責Facebook Login</li>
+			<li><a href="https://github.com/arsduo/koala" target="_blank">koala</a>&nbsp;：負責做Facebook的資料的存取</li>
+			<li><a href="https://github.com/plataformatec/simple_form" target="_blank">simple_form</a> ： <a href="http://garylai1990.tumblr.com/post/30247083596/protect-from-forgery" target="_blank">這可以參考我前面這篇</a>，為解決方案</li>
+			<li><a href="https://github.com/macournoyer/thin" target="_blank">thin</a>&nbsp;： 這我比較不熟，Heroku推薦，Godfat也提到過。</li>
+			</ul>
+			<p>我不自己架設Sever，我使用的是<a href="http://www.heroku.com/" target="_blank">Heroku</a>，他們也是架在著名的<a href="http://aws.amazon.com/" target="_blank">AWS</a>上面。</p>
+			<p>而整個開發過程，除了問人，我最常去的是這幾個網站，而我整篇網誌很多網站，我幾乎把網址都背下來了，打的比Google快：</p>
+			<ul>
+			<li><a href="www.google.com" target="_blank">Google</a> ： 這我想每個人都是吧....</li>
+			<li><a href="http://www.stackoverflow.com" target="_blank">Stackoverflow</a> ：簡言之，宅男版知識加社群</li>
+			</ul>
+			<p>雖然我是一個人開發，但我所有的Code也有做版本控制，我是用的是<a href="https://github.com/" target="_blank">Github</a>，我的<a href="https://github.com/garylai1990/nckucourse" target="_blank">整個專案的程式碼</a>，我也放在上面，是Public的，我之後有空會做Documents，讓整個系統可以更多人貢獻。</p>
+			<p>最後，在成大的最後一年，雖然還尚未開始，但希望我能用我最大的力氣，貢獻給成大！各位成大人，共勉之！</p>
+			<p>Rock</p>
 		</div>
 	</div>
 </div>	
