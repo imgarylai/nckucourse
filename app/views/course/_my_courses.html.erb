@@ -1,0 +1,31 @@
+<div class="tabbable tabs-right">
+  <ul class="nav nav-tabs">
+    <% @courses.each do |c| %>
+      <% if current_user.courses.member?(c) %>
+        <li class="">
+          <a href="#<%= c.name %>" data-toggle="tab">
+            <%= c.name %>
+            <form action="remove_course" method="post">
+              <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
+              <button type="submit" class="btn btn-danger btn-mini">remove</button>
+            </form>
+          </a>
+        </li>
+      <% end -%>
+    <% end -%>
+  </ul>
+  <div class="tab-content">
+    <% @courses.each do |c| %>
+      <% if current_user.courses.member?(c) %>
+        <div class="tab-pane" id="<%= c.name %>">
+          <% c.users.each do |u| %>
+            <div class="well well-small">
+              <img src="http://graph.facebook.com/<%="#{u.uid}"%>/picture">
+              <%= link_to "#{u.name}", "http://www.facebook.com/#{u.uid}",:target => "_blank" %>
+            </div>
+          <% end -%>
+        </div>
+      <% end -%>
+    <% end -%>
+  </div>
+</div>
