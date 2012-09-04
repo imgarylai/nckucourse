@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     	redirect_to login_url, notice: "Please log in" unless current_user
     end
 
-
   private
     def current_user
       @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
