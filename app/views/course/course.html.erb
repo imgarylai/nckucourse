@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="page-header">
 		<h2><%= @course.name %></h2>
+		<h3><%= @course.teacher %></h3>
 	</div>
 	<table class="table table-striped">
 		<% @course.exps.each do |e| %>
