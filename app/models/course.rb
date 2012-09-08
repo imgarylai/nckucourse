@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :user_courseships
   has_many :exps
   attr_accessible :name, :sn, :time, :teacher, :categories
-  validates_uniqueness_of :sn
+  # validates_uniqueness_of :sn
   
   def self.search(search)
 	  if search
