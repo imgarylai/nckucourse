@@ -15,11 +15,14 @@ class User < ActiveRecord::Base
   end
 
   def graph
-      @graph ||= Koala::Facebook::API.new(oauth_token)
+    @graph ||= Koala::Facebook::API.new(oauth_token)
   end
   
   def friends
     graph.get_connection("me","friends")
   end
 
+  def gender
+    @gender = graph.get_object("me")["gender"]
+  end
 end
