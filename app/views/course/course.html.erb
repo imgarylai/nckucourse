@@ -1,7 +1,10 @@
 <div class="container">
+	<div class="pull-right">
+    <h2><%= link_to '<i class="icon-pencil icon-white"></i> 發表心得'.html_safe, new_exp_path, :class => "btn btn-primary" %></h2>
+  	</div>
 	<div class="page-header">
 		<h2><%= @course.name %></h2>
-		<h3><%= @course.teacher %></h3>
+		<h3><%= @course.teacher %></h3>    
 	</div>
 	<table class="table table-striped">
 		<% @course.exps.each do |e| %>
