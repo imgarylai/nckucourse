@@ -2,6 +2,7 @@
   <tr>
 		<th>SN</th>
     <th>Name</th>
+    <th width="300px">Teacher(s)</th>
     <th>Amount</th>
     <th>Time</th>
 		<th>Add/Remove</th>
@@ -10,7 +11,8 @@
   <tr>
 		<td><%= link_to "#{c.sn}", "course/#{c.id}" %></td>
     <td><%= link_to "#{c.name} " ,"course/#{c.id}" %></td>
-    <td><%= "#{c.users.size}" %></td>
+    <td width="300px"><%= c.teacher %></td>
+    <td><%= c.users.size %></td>
     <td><%= c.time %></td>
 		<td>
       <% if !current_user.courses.member?(c) %>

@@ -1,27 +1,27 @@
-<div class="container">
+<div class="container-fluid">
   <% flash.each do |name, msg| %>
   <div class="alert alert-error">
     <strong>Warning!</strong><%= content_tag :p, msg, id: "flash_#{name}" %>
   </div>
   <% end %>
-  <%= current_user.gender %>
-  <div class="span6">
-    <div class="span2">
-      <h3>Courses</h3>
-    </div>
-    <div class="pull-right">
-    <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
-      <h3><%= text_field_tag :search, params[:search] ,:class => "input-medium search-query" %>
-      <%= submit_tag "Search", :name => nil , :class => "btn" %></h3>
-    <% end %>
-    </div>
-    <div id="courses">
-      <%= render :partial =>'/course/courses' %>
-    </div>
+  <% current_user.gender %>
+  <div class="row-fluid">
+    <div class="span8">
+      <div class="span2">
+        <h3>Courses</h3>
+      </div>
+      <div class="pull-right">
+      <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
+        <h3><%= text_field_tag :search, params[:search] ,:class => "input-medium search-query" %>
+        <%= submit_tag "Search", :name => nil , :class => "btn" %></h3>
+      <% end %>
+      </div>
+      <div id="courses">
+        <%= render :partial =>'/course/courses' %>
+      </div>
   </div>
-  <div class="span6">
-  <div class="span3"><h3>My Course</h3></div>
-  <div class="span6">
-      <%= render :partial =>'/course/my_courses' %>
+  <div class="span4">
+    <h3>My Course</h3>
+    <%= render :partial =>'/course/my_courses' %>
   </div>
 </div>

@@ -2,6 +2,9 @@ class CourseController < ApplicationController
 
   def index
     @courses = Course.search(params[:search]).order(:sn)
+    respond_to do |format|
+      format.html # index.html.erb
+    end
     # @usercourseships = UserCourseship.find_by_user_id(current_user.id)
   end
 
