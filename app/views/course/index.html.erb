@@ -6,22 +6,19 @@
   <% end %>
   <% current_user.gender %>
   <div class="row-fluid">
-    <div class="span8">
-      <div class="span2">
-        <h3>Courses</h3>
+    <div class="span8 hidden-phone">
+      <div class="row-show">
+        <div class="span8">
+          <h3>Courses</h3>
+        </div>
+        <div id="courses">
+          <%= render :partial =>'/course/courses' %>
+        </div>
       </div>
-      <div class="pull-right">
-      <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
-        <h3><%= text_field_tag :search, params[:search] ,:class => "input-medium search-query" %>
-        <%= submit_tag "Search", :name => nil , :class => "btn" %></h3>
-      <% end %>
-      </div>
-      <div id="courses">
-        <%= render :partial =>'/course/courses' %>
-      </div>
-  </div>
-  <div class="span4">
-    <h3>My Course</h3>
-    <%= render :partial =>'/course/my_courses' %>
+    </div>
+    <div class="span4">
+      <h3>My Courses</h3>
+        <%= render :partial =>'/course/my_courses' %>
+    </div>
   </div>
 </div>

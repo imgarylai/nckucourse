@@ -8,7 +8,6 @@
 	</div>
 	<table class="table table-striped">
 		<% @course.exps.each do |e| %>
-		
 			<tr>
 				<td><h4><%= link_to "#{e.user.name}#{e.year}#{e.course.name}#{e.rate}",
 		 "/exps/#{e.id}" %></h4></td>

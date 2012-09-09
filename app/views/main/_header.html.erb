@@ -1,28 +1,41 @@
-<div class="navbar navbar-static-top">
+<div class="navbar">
 	<div class="navbar-inner">
-		<div class="container-fluid">
-			<ul class="nav">
-				<a class="brand" href="<%= root_url %>">NCKU Course</a>
-				<li class="<%= 'active' if params[:controller] == 'course' %>"><%= link_to "課程", :root %> </li>
-				<li class="<%= 'active' if params[:controller] == 'exps' %>"><%= link_to "心得", :exps %> </li>
-				<li class="<%= 'active' if params[:controller] == 'about' %>"><%= link_to "介紹", :about %> </li>
-				<li><%= link_to "Facebook", "https://www.facebook.com/nckucourse", :target => "_blank" %></li>
-			</ul>
+		<div class="container">
+			<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="<%= root_url %>">NCKU Course</a>
+      <div class="nav-collapse collapse" style="height: 0px; ">
+				<ul class="nav">
+					<li class="<%= 'active' if params[:controller] == 'course' %>"><%= link_to "課程", :root %> </li>
+					<li class="<%= 'active' if params[:controller] == 'exps' %>"><%= link_to "心得", :exps %> </li>
+					<li class="<%= 'active' if params[:controller] == 'about' %>"><%= link_to "介紹", :about %> </li>
+					<li><%= link_to "Facebook", "https://www.facebook.com/nckucourse", :target => "_blank" %></li>
+				</ul>
+				<%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
+            <%= text_field_tag :search, 
+            params[:search] ,
+            :class => "navbar-search search-query pull-left hidden-phone",
+            :placeholder => '搜尋課程' %>
+          <% end %>
 				<ul class="nav pull-right">
-				<li>
-					<a href="">
-						<img width=20px height=20px
-					src="http://graph.facebook.com/<%="#{current_user.uid}"%>/picture">
-					</a>
-				</li>
-				<li>
-					<%= link_to "#{current_user.name}", 
-					"http://www.facebook.com/#{current_user.uid}",
-					:target => "_blank",
-					:class => "brand" %>
-				</li>
-				<li><%= link_to "Sign out", signout_path, id: "sign_out" %>  </li> 
-			</ul>
+					<li>
+						<a href="">
+							<img width=20px height=20px
+						src="http://graph.facebook.com/<%="#{current_user.uid}"%>/picture">
+						</a>
+					</li>
+					<li>
+						<%= link_to "#{current_user.name}", 
+						"http://www.facebook.com/#{current_user.uid}",
+						:target => "_blank",
+						:class => "brand" %>
+					</li>
+					<li><%= link_to "Sign out", signout_path, id: "sign_out" %>  </li> 
+				</ul>
+			</div><!-- /.nav-collapse -->
 		</div>
-	</div>
+	</div><!-- /navbar-inner -->
 </div>
