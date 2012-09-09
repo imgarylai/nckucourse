@@ -38,6 +38,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'omniauth-facebook'
-gem 'koala'
+gem 'koala', :git => 'https://github.com/arsduo/koala.git'
 gem 'thin'
 gem 'simple_form'
