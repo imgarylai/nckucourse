@@ -2,11 +2,11 @@
 	<div class="span6">
 		<h2><%= @course.name %></h2>
 		<%= link_to "Back", root_url %>
-			<% @course.users.each do |u| %>
-				<div class="well well-small">
-				<img src="http://graph.facebook.com/<%="#{u.uid}"%>/picture">
-				<%= link_to "#{u.name}", "http://www.facebook.com/#{u.uid}",:target => "_blank" %>
-				</div>
-			<% end %>
+		<% @course.users.each do |u| %>
+			<div class="well well-small">
+			<img src="http://graph.facebook.com/<%="#{u.uid}"%>/picture">
+			<%= link_to "#{u.name}", "http://www.facebook.com/#{u.uid}",:target => "_blank" %>
+			</div>
+		<% end %>
 	</div>
 </div>
