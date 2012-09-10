@@ -3,7 +3,7 @@
     <% @courses.each do |c| %>
       <% if current_user.courses.member?(c) %>
         <li class="">
-          <a href="#<%= c.name %>" data-toggle="tab">
+          <a href="#<%= c.sn %>" data-toggle="tab">
             <%= c.name %>
           </a>
         </li>
@@ -13,7 +13,7 @@
   <div class="tab-content">
     <% @courses.each do |c| %>
       <% if current_user.courses.member?(c) %>
-        <div class="tab-pane" id="<%= c.name %>">
+        <div class="tab-pane" id="<%= c.sn %>">
           <form action="remove_course" method="post">
             <input type="hidden" name="id" value=<%= "'#{c.id}'" %> >
             <button type="submit" class="btn btn-danger btn-mini">remove</button>
