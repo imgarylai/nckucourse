@@ -11,6 +11,13 @@
         <div class="span8">
           <h3>Courses</h3>
         </div>
+        <%= form_tag :root, :method => 'get', :id => "courses_search", :class => "form-search" do %>
+          <%= text_field_tag :search, 
+          params[:search] ,
+          :class => "navbar-search search-query pull-left hidden-phone",
+          :placeholder => '搜尋課程' %>
+          <%= submit_tag "Search", :name => nil, :type => "hidden" %>
+        <% end %>
         <div id="courses">
           <%= render :partial =>'/course/courses' %>
         </div>
